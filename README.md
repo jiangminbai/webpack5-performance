@@ -116,3 +116,6 @@ image-minimizer-webpack-plugin
     ),
   }),
 ```
+
+### 参考
+https://juejin.cn/post/7244819106342780988
