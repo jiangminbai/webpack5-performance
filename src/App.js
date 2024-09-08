@@ -1,9 +1,12 @@
 import './App.less'
+import logo from './assets/logo.png'
 
 function App() {
   
   return (
-    <div className='app'>hello</div>
+    <div className='app'>
+      <img src={logo} />
+    </div>
   )
 }
 

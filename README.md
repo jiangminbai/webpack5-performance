@@ -70,3 +70,49 @@
 
 ### 优化构建体积
 
+#### 压缩代码
+1.压缩html
+```javascript
+  new HtmlWebpackPlugin({
+    minify: {
+      removeComments: true, // 去掉HTML的注释
+      collapseWhitespace: true, // 删除空白符与换行符
+      minifyCSS: true, // 压缩内联css
+    }
+  })
+```
+2. 压缩css
+```javascript
+  // 抽离css到单独文件(mini-css-extract-plugin)
+  use: [
+    MiniCssExtractPlugin.loader,
+    'css-loader',
+  ]
+  plugins: [
+    new MiniCssExtractPlugin()
+  ]
+  // 压缩css(css-minimizer-webpack-plugin)
+  optimization: {
+    minimize: true, // 是否需要压缩
+    minimizer: [
+      new CssMinimizerWebpackPlugin()
+    ]
+  }
+```
+3. 压缩js
+webpack 5 在mode=production模式下默认配置了terser-webpack-plugin来压缩
+
+4. 压缩图片
+image-minimizer-webpack-plugin
+
+#### Tree Shaking
+1. js tree shaking 在生产模式下已经默认开启
+2. css tree shaking 
+```javascript
+  new PurgeCSSPlugin({
+    paths: glob.sync(
+      path.join(__dirname, 'src/**/*'),
+      { nodir: true }
+    ),
+  }),
+```
