@@ -1,2 +1,4 @@
-# webpack5-performance
-performance optimization for webpack 5
+# webpack5 性能优化
+从`时间`和`体积`两个层面去优化
+
+### 优化构建速度
