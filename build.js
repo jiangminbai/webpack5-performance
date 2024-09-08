@@ -5,7 +5,7 @@ const compiler = webpack(config)
 
 compiler.run((err, stats) => {
   if (err) {
-    console.log(err)
+    // console.log(err)
     return
   }
   console.log(
@@ -15,7 +15,9 @@ compiler.run((err, stats) => {
       modules: false,
       assets: true,
       all: undefined,
-      cachedAssets: true
+      cachedAssets: true,
+      // errors: true,
+      // errorStack: true,
     })
   )
 })
